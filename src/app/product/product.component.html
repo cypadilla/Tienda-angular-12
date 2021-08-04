@@ -1,0 +1,26 @@
+<nav >
+    <span class="title" [routerLink]="['/home']" >SusaMauro</span>
+    <ul class="menu">
+        <li class="item" [routerLink]="['/home']" routerLinkActive="router-link-active" >Home</li>
+        <li class="item" [routerLink]="['/users']" routerLinkActive="router-link-active">Usuarios</li>
+        <li class="item" [routerLink]="['/products']" routerLinkActive="router-link-active">Productos</li>
+    </ul>
+</nav>
+<main class="container-product">
+    <div class="card mb-3">
+        <div class="row g-0">
+          <div class="col-md-4">
+            <img src="../../assets/images/cover.jpg" class="img-fluid rounded-start" alt="...">
+          </div>
+          <div class="col-md-8">
+            <div class="card-body">
+              <h5 class="card-title">{{product?.nombre}}</h5>
+              <p class="card-price">${{product?.precio}}</p>
+              <p class="card-feature">{{product?.categoria}}</p>
+              <p class="card-text">{{product?.descripcion}}</p>
+              <button class="btn btn-primary" [routerLink]="['/product/edit']" routerLinkActive="router-link-active">Editar Producto</button>
+            </div>
+          </div>
+        </div>
+      </div>
+</main> 

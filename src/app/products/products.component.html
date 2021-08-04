@@ -1,0 +1,87 @@
+<nav >
+    <span class="title" [routerLink]="['/home']" >SusaMauro</span>
+    <ul class="menu">
+        <li class="item" [routerLink]="['/home']" routerLinkActive="router-link-active" >Home</li>
+        <li class="item" [routerLink]="['/users']" routerLinkActive="router-link-active">Usuarios</li>
+        <li class="item" [routerLink]="['/products']" routerLinkActive="router-link-active">Productos</li>
+    </ul>
+</nav>
+<main class="container-fluid">
+    <div class="card" style="width: 18rem;" *ngFor="let item of products">
+        <img src="../../assets/images/cover.jpg" class="card-img-top" alt="...">
+        <div class="card-body">
+          <h5 class="card-title">{{item.nombre}}</h5>
+          <p class="card-text">{{item.descripcion}}</p>
+          <p class="card-text">${{item.precio}}</p>
+          <p class="card-text">Categoria:{{item.categoria}}</p>
+          
+          <button (click)="goProduct(item._id)" class="btn btn-warning">Ver producto</button>
+        </div>
+      </div>
+    <!-- <div class="card" style="width: 18rem;">
+        <img src="../../assets/images/cover.jpg" class="card-img-top" alt="...">
+        <div class="card-body">
+          <h5 class="card-title">Carrito de compras</h5>
+          <p class="card-text">Este carrito de compras es justo lo que necesitas para llevar tus productos.</p>
+          <button [routerLink]="['/product']" routerLinkActive="router-link-active" class="btn btn-warning">Ver producto</button>
+        </div>
+      </div>
+    <div class="card" style="width: 18rem;">
+        <img src="../../assets/images/cover.jpg" class="card-img-top" alt="...">
+        <div class="card-body">
+          <h5 class="card-title">Carrito de compras</h5>
+          <p class="card-text">Este carrito de compras es justo lo que necesitas para llevar tus productos.</p>
+          <button [routerLink]="['/product']" routerLinkActive="router-link-active" class="btn btn-warning">Ver producto</button>
+        </div>
+      </div>
+    <div class="card" style="width: 18rem;">
+        <img src="../../assets/images/cover.jpg" class="card-img-top" alt="...">
+        <div class="card-body">
+          <h5 class="card-title">Carrito de compras</h5>
+          <p class="card-text">Este carrito de compras es justo lo que necesitas para llevar tus productos.</p>
+          <button [routerLink]="['/product']" routerLinkActive="router-link-active" class="btn btn-warning">Ver producto</button>
+        </div>
+      </div>
+    <div class="card" style="width: 18rem;">
+        <img src="../../assets/images/cover.jpg" class="card-img-top" alt="...">
+        <div class="card-body">
+          <h5 class="card-title">Carrito de compras</h5>
+          <p class="card-text">Este carrito de compras es justo lo que necesitas para llevar tus productos.</p>
+          <button [routerLink]="['/product']" routerLinkActive="router-link-active" class="btn btn-warning">Ver producto</button>
+        </div>
+      </div>
+    <div class="card" style="width: 18rem;">
+        <img src="../../assets/images/cover.jpg" class="card-img-top" alt="...">
+        <div class="card-body">
+          <h5 class="card-title">Carrito de compras</h5>
+          <p class="card-text">Este carrito de compras es justo lo que necesitas para llevar tus productos.</p>
+          <button [routerLink]="['/product']" routerLinkActive="router-link-active" class="btn btn-warning">Ver producto</button>
+        </div>
+      </div>
+    <div class="card" style="width: 18rem;">
+        <img src="../../assets/images/cover.jpg" class="card-img-top" alt="...">
+        <div class="card-body">
+          <h5 class="card-title">Carrito de compras</h5>
+          <p class="card-text">Este carrito de compras es justo lo que necesitas para llevar tus productos.</p>
+          <button [routerLink]="['/product']" routerLinkActive="router-link-active" class="btn btn-warning">Ver producto</button>
+        </div>
+      </div>
+    <div class="card" style="width: 18rem;">
+        <img src="../../assets/images/cover.jpg" class="card-img-top" alt="...">
+        <div class="card-body">
+          <h5 class="card-title">Carrito de compras</h5>
+          <p class="card-text">Este carrito de compras es justo lo que necesitas para llevar tus productos.</p>
+          <button [routerLink]="['/product']" routerLinkActive="router-link-active" class="btn btn-warning">Ver producto</button>
+        </div>
+      </div>
+    <div class="card" style="width: 18rem;">
+        <img src="../../assets/images/cover.jpg" class="card-img-top" alt="...">
+        <div class="card-body">
+          <h5 class="card-title">Carrito de compras</h5>
+          <p class="card-text">Este carrito de compras es justo lo que necesitas para llevar tus productos.</p>
+          <button [routerLink]="['/product']" routerLinkActive="router-link-active" class="btn btn-warning">Ver producto</button>
+        </div>
+      </div> -->
+
+
+</main>

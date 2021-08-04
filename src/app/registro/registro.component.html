@@ -1,0 +1,29 @@
+<main class="container">
+        <section class="container-login">
+            <h1 class="container-login-title">Bienvenido</h1>
+            <p class="container-login-p">¿Ya tienes una cuenta?</p>
+
+            <button class="container-login-bottom" [routerLink]="['/login']" routerLinkActive="router-link-active">Inicia sesión</button>
+        </section>
+        <section class="container-register">
+            <div class="container-register-form">
+                <h1 class="container-register-form-title">Crear Cuenta</h1>
+                    <form class="form" action=""(ngSubmit)="onSave()"[formGroup]="formRegister">
+                        <input class="input" type="text" name="name" placeholder="Nombre" formControlName="nombre" required>
+                        <input class="input" type="text" name="lastName" placeholder="Apellido" formControlName="apellido" required>
+                        <input class="input" type="email" name="Email" placeholder="Ejemlo@ejemplo.com" formControlName="email" required>
+                        <input  class="input"type="text" name ="address" placeholder="Dirección" formControlName="direccion">
+                        <input  class="input"type="password" name="password" placeholder="Contraseña" formControlName="password">
+                        <input  class="input"type="password" name="confirmPassword" placeholder="Confirmar contraseña" formControlName="repeat">
+                        <select class ="input" name="miselect" formControlName="tipo">
+                            <option value="comprador">Comprador</option>
+                            <option value="vendedor">Vendedor</option>
+                          </select>
+                        <div class="buttom-container">
+                            <button class="input-bottom"type="submit"> Registrarme</button>
+                        </div>
+
+                    </form>
+            </div>
+        </section>
+    </main>

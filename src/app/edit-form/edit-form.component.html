@@ -1,0 +1,45 @@
+<nav >
+    <span class="title" [routerLink]="['/home']" >SusaMauro</span>
+    <ul class="menu">
+        <li class="item" [routerLink]="['/home']" routerLinkActive="router-link-active" >Home</li>
+        <li class="item" [routerLink]="['/users']" routerLinkActive="router-link-active">Usuarios</li>
+        <li class="item" [routerLink]="['/products']" routerLinkActive="router-link-active">Productos</li>
+    </ul>
+</nav>
+<main class="container-fluid">
+    <form class="container-form">
+        <div class="container-form-inputs">
+             <div class="input-container" >
+                <label class="label-input" for="name">Nombre Producto</label>
+                <input class="input-form form-control  shadow-none" type="text" id="name">
+             </div>
+             <div  class="input-container" >
+                <label class="label-input" for="price">Valor</label>
+                <input class="input-form form-control shadow-none" type="number" id="price">
+             </div>
+             <div class="input-container">
+                <label class="label-input" for="feature">Categoria</label>
+                <input class="input-form form-control shadow-none" type="text" id="feature">
+            </div>
+            <div class="input-container">
+                <label for="image" class="label-input">Imagen</label>
+                <input class="form-control  shadow-none image" type="file" id="formFile">
+            </div>
+             <div class="input-container">
+                <label class="label-input" for="description">Descripción</label>
+                <textarea class="text-area form-control shadow-none" type="text" id="description"></textarea>
+             </div>
+         </div>
+         <button class="btn btn-primary">Actualizar datos</button>
+    </form>
+</main>
+
+
+
+ <form class="form-container">
+    
+   
+    
+    
+    
+</form>
