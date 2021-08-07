@@ -15,7 +15,8 @@ export class ProductComponent implements OnInit {
 
   constructor(
     private productService :ProductService,
-    private router: ActivatedRoute
+    private router: ActivatedRoute,
+    private route:Router
   ) { 
     this.label = this.router.snapshot.paramMap.get('id');
   }
@@ -29,5 +30,9 @@ export class ProductComponent implements OnInit {
       this.product = product
       console.log('hola',this.product)
     });
+  }
+
+  goEdit(id){
+    this.route.navigateByUrl(`/product/edit/${id}`)
   }
 }

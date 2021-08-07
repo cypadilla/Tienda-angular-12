@@ -2,7 +2,6 @@ import { Component, OnInit } from '@angular/core';
 import { FormGroup, FormBuilder, Validators } from '@angular/forms';
 import { Router } from '@angular/router';
 import { userResponse } from '../models/user-response'
-import { user } from '../models/user.model';
 import { UsersService } from '../services/users.service';
 
 @Component({
@@ -13,7 +12,6 @@ import { UsersService } from '../services/users.service';
 export class UserComponent implements OnInit {
 
   users : userResponse;
-  user1:user;
   formUpdate:FormGroup;
   idUser:string;
 

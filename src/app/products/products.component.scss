@@ -47,7 +47,7 @@ nav{
 }
 
 .container-fluid{
-    padding: 8%;
+    padding: 5%;
     display: grid;
     grid-template:repeat(2, 1fr)/ repeat(3,1fr);
     gap:25px;
@@ -64,4 +64,22 @@ nav{
     width: 150px;
     padding: 3% 1px;
     margin-left: 60px;
+    
+    
+
+}
+
+.container-add-product{
+    margin-top: 20px;
+    height: 100px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.button_agregar{
+
+    outline: none;
+    height: 60px;
+    
 }

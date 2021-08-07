@@ -19,7 +19,11 @@ export class ProductService {
     return this.http.get<Product>('http://localhost:3000/api/productos');
   }
 
-  getProduct(label:any) {
-    return this.http.get<Product>(`http://localhost:3000/api/productos/${label}`);
+  getProduct(id:any) {
+    return this.http.get<Product>(`http://localhost:3000/api/productos/${id}`);
+  }
+
+  updateProduct(id,product){
+    return this.http.put<Product>(`http://localhost:3000/api/productos/${id}`,product);
   }
 }

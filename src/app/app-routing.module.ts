@@ -7,6 +7,7 @@ import { UserComponent } from './user/user.component';
 import { ProductsComponent } from './products/products.component';
 import { ProductComponent } from './product/product.component';
 import { EditFormComponent } from './edit-form/edit-form.component';
+import { AutenticadoGuard } from './guards/autenticado.guard';
 
 const routes: Routes = [
   {
@@ -21,20 +22,20 @@ const routes: Routes = [
     path:'registro',component:RegistroComponent, pathMatch:'full'
   },
   {
-    path:'home',component:HomeComponent, pathMatch:'full'
+    path:'home',component:HomeComponent, pathMatch:'full', canActivate:[AutenticadoGuard]
   }
   ,
   {
-    path:'users',component:UserComponent, pathMatch:'full'
+    path:'users',component:UserComponent, pathMatch:'full',canActivate:[AutenticadoGuard]
   },
   {
-    path:'products',component:ProductsComponent,pathMatch:'full'
+    path:'products',component:ProductsComponent,pathMatch:'full',canActivate:[AutenticadoGuard]
   },
   {
-    path:'product/:id',component:ProductComponent,pathMatch:'full'
+    path:'product/:id',component:ProductComponent,pathMatch:'full',canActivate:[AutenticadoGuard]
   },
   {
-    path:'product/edit',component:EditFormComponent,pathMatch:'full'
+    path:'product/edit/:id',component:EditFormComponent,pathMatch:'full',canActivate:[AutenticadoGuard]
   }
 ];
 
