@@ -1,0 +1,117 @@
+@import url('https://fonts.googleapis.com/css2?family=Varela+Round&display=swap');
+
+*{
+    box-sizing: border-box;
+    padding: 0;
+    margin: 0;
+}
+
+nav{
+    width: 100%;
+    height: 10vh;
+    background:#202E7C;
+    border-radius: 0 0 100px 100px;
+    display: flex;
+    justify-content:space-between ;
+    align-items: center;
+    padding: 5px 100px;
+}
+.menu{
+   display: inline;
+   justify-content: space-evenly;
+   padding: 50px;
+}
+
+.title{
+    font-size: 25px;
+    color:white;
+    font-family:  'Varela Round',sans-serif;
+    cursor: pointer;
+}
+.menu .item{
+    display: inline-block;
+    list-style-type: none;
+    padding: 0px 20px;
+    cursor: pointer;
+    color: #FFFFFF;
+    font-family:  'Varela Round',sans-serif;
+    transition: transform 0.6s cubic-bezier(0.37, 0, 0.63, 1);
+}
+
+.menu .item:hover{
+    text-decoration: underline 1px #F3F304;
+}
+
+.router-link-active{
+    text-decoration: underline 1px #F3F304;
+}
+
+.container-fluid{
+    padding: 4%;
+    text-align: center;
+
+    .title-product{
+        margin-bottom: 40px;
+        font-family:  'Varela Round',sans-serif;
+        font-weight: 700;
+        color: #202E7C;
+        // box-shadow: 20px 14px 29px -9px rgba(32,46,124,0.54);
+    }
+}
+
+.container-form{
+    box-shadow: 35px 33px 113px -8px rgba(125,128,189,0.45);
+    padding: 30px;
+    border-radius: 20px;
+}
+
+.container-form-inputs{
+    display: grid;
+    grid-template:repeat(2,1fr)/repeat(2,1fr);
+    gap: 25px 20px;
+}
+
+.input-container{
+    display: flex;
+    flex-direction: column;
+    justify-items: center;
+    align-items: center;
+}
+.label-input{
+    display: block ;
+    font-size: 20px;
+    font-weight: 700;
+    font-family: 'Varela Round', sans-serif;
+    margin-bottom: 5px;
+
+}
+
+.input-form,.text-area{
+    border:none;
+    border-bottom: 1px solid black;
+    outline: none;
+    width: 70%;
+    height: 40%;
+
+    &:focus{
+        border-bottom: 2.5px solid #F3F304;
+    }
+}
+
+.text-area:focus{
+    height: 80%;
+    margin-bottom: 20px;
+}
+
+.image{
+    height: 40%;
+    width: 70%;
+}
+
+.btn{
+    margin-top: 40px;
+    height: 50px;
+    width: 150px;
+    border-radius: 30px;
+}
+

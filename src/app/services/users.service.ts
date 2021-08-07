@@ -27,10 +27,10 @@ export class UsersService {
       Authorization: token
       })
       return this.http.get<userResponse>('http://localhost:3000/api/usuarios',{headers:header});
-    };
+  };
 
 
-   updateUser(user,id){
+  updateUser(user,id){
     return this.http.put<userResponse>(`http://localhost:3000/api/usuarios/update/${id}`,user)
   }
 

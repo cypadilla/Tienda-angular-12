@@ -8,6 +8,7 @@ import { ProductsComponent } from './products/products.component';
 import { ProductComponent } from './product/product.component';
 import { EditFormComponent } from './edit-form/edit-form.component';
 import { AutenticadoGuard } from './guards/autenticado.guard';
+import { AddProductComponent } from './add-product/add-product.component';
 
 const routes: Routes = [
   {
@@ -36,6 +37,9 @@ const routes: Routes = [
   },
   {
     path:'product/edit/:id',component:EditFormComponent,pathMatch:'full',canActivate:[AutenticadoGuard]
+  },
+  {
+    path:'products/add',component:AddProductComponent,pathMatch:'full',canActivate:[AutenticadoGuard]
   }
 ];
 

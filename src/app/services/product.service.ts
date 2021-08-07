@@ -26,4 +26,8 @@ export class ProductService {
   updateProduct(id,product){
     return this.http.put<Product>(`http://localhost:3000/api/productos/${id}`,product);
   }
+
+  createProduct(product){
+    return this.http.post<Product>(`http://localhost:3000/api/productos`,product)
+  }
 }

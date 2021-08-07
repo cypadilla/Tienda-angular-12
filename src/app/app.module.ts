@@ -12,6 +12,7 @@ import { ProductComponent } from './product/product.component';
 import { EditFormComponent } from './edit-form/edit-form.component';
 import { HttpClientModule } from '@angular/common/http';
 import { FormsModule, ReactiveFormsModule } from '@angular/forms';
+import { AddProductComponent } from './add-product/add-product.component';
 
 @NgModule({
   declarations: [
@@ -22,7 +23,8 @@ import { FormsModule, ReactiveFormsModule } from '@angular/forms';
     UserComponent,
     ProductsComponent,
     ProductComponent,
-    EditFormComponent
+    EditFormComponent,
+    AddProductComponent
   ],
   imports: [
     BrowserModule,

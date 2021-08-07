@@ -78,8 +78,12 @@ nav{
 }
 
 .button_agregar{
-
+    display: flex;
+    align-items: center;
+    justify-content: center;
     outline: none;
-    height: 60px;
-    
+    color: #000000;
+    font-weight: 700;
+    font-family:  'Varela Round',sans-serif;
+    width: 20%;
 }
