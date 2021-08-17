@@ -1,5 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { Router } from '@angular/router';
+import { UsersService } from '../services/users.service';
 
 @Component({
   selector: 'app-home',
@@ -8,16 +9,26 @@ import { Router } from '@angular/router';
 })
 export class HomeComponent implements OnInit {
 
+  tipo:string;
   constructor(
-    private router:Router
+    private router:Router,
+    private userService:UsersService
   ) { }
 
   ngOnInit(): void {
+    this.getType()
   }
 
   logOut(){
     localStorage.removeItem('token')
+    localStorage.removeItem('tipo')
     this.router.navigateByUrl('login')
   }
+
+  getType(){
+    this.tipo = this.userService.getType();
+  }
+
+
 
 }

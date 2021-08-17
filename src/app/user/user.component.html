@@ -37,9 +37,10 @@
               <input class ="input-form"type="text" formControlName="apellido"placeholder="Apellido">
               <input class ="input-form"type="email"  formControlName="email" placeholder="Correo">
               <input class ="input-form"type="text"  formControlName="direccion" placeholder="Direccion">
-              <select class ="input-form" name="miselect" formControlName="tipo">
+              <select *ngIf="tipo === 'administrador'" class ="input-form" name="miselect" formControlName="tipo">
                 <option value="comprador">Comprador</option>
                 <option value="vendedor">Vendedor</option>
+                <option value="administrador">Administrador</option>
               </select>
               <button class="button-form btn btn-primary" type="submit">Actualizar</button>
           </form>

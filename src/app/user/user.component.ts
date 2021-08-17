@@ -14,7 +14,7 @@ export class UserComponent implements OnInit {
   users : userResponse;
   formUpdate:FormGroup;
   idUser:string;
-
+  tipo:string
   constructor(
     private usersService:UsersService,
     private formBuilder:FormBuilder,
@@ -24,7 +24,19 @@ export class UserComponent implements OnInit {
    }
 
   ngOnInit(): void {
-    this.getAllUsers();
+    this.getType()
+    if(this.tipo === 'administrador'){
+      this.getAllUsers();
+    }else{
+      this.getUser();
+    }
+  }
+  getUser() {
+    const id = localStorage.getItem('id')
+    console.log(id)
+    this.usersService.getUser(id).subscribe( res => {
+      this.users = res
+    })
   }
 
   getAllUsers(){
@@ -38,6 +50,10 @@ export class UserComponent implements OnInit {
     this.formUpdate.patchValue(item)
     this.idUser = item._id;
     console.log(this.idUser)
+  }
+
+  getType(){
+    this.tipo = this.usersService.getType();
   }
 
   onSave(){
@@ -58,7 +74,11 @@ export class UserComponent implements OnInit {
         console.log('response registro',response)
         if(response){
           this.formUpdate.reset();
-          this.getAllUsers();
+          if(this.tipo === 'administrador'){
+            this.getAllUsers();
+          }else{
+            this.getUser();
+          }
         }else{
           alert('Error, ingrese los datos denuevo')
         }

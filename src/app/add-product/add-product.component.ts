@@ -14,6 +14,9 @@ export class AddProductComponent implements OnInit {
   formRegister:FormGroup;
   idProduct:string;
   product:Product
+  uploadedFiles: Array < File > ;
+  image:string
+  file:any
 
   constructor(
     private formBuilder:FormBuilder,
@@ -30,14 +33,22 @@ export class AddProductComponent implements OnInit {
   onSave(){
 
     console.log(this.formRegister.value)
+    
+    // let formData = new FormData();
+    // for (var i = 0; i < this.uploadedFiles.length; i++) {
+    //   formData.append("uploads[]", this.uploadedFiles[i], this.uploadedFiles[i].name);
+    // }
 
+    // console.log(formData)
     if(this.formRegister.valid){
       const productData = {
         nombre: this.formRegister.value.nombre,
         descripcion : this.formRegister.value.descripcion,
         categoria: this.formRegister.value.categoria,
         precio: this.formRegister.value.precio,
+        // imgUrl:this.uploadedFiles,
       } 
+      // console.log('imagen', productData.imgUrl)
       this.productService.createProduct(productData).subscribe( response => {
         console.log('response registro',response)
         if(response){
@@ -54,6 +65,20 @@ export class AddProductComponent implements OnInit {
 
   }
 
+  // onFileChange(event){
+  //   // console.log("imagen",event)
+  //  const file = event.target.files[0];
+  //  if(file.type.includes("image")){
+  //    const reader = new FileReader()
+  //    reader.readAsDataURL(file);
+  //    reader.onload = function load(){
+  //      this.image = reader.result;
+  //      this.file = file;
+  //   }.bind(this)
+  //  }
+  //   console.log('evento de imagen',event.target.files)
+  // }
+
 
   private buildForm(){
     this.formRegister = this.formBuilder.group({
@@ -61,6 +86,7 @@ export class AddProductComponent implements OnInit {
       descripcion:['',[Validators.required]],
       precio:['',[Validators.required]],
       categoria:['',[Validators.required]],
+      // imgUrl:['',[Validators.required]]
     });
   }
 

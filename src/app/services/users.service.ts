@@ -18,6 +18,14 @@ export class UsersService {
     return localStorage.getItem('token');
   }
 
+  getType(){
+    return localStorage.getItem('tipo');
+  }
+
+  getUser(id){
+    return this.http.get<userResponse>(`http://localhost:3000/api/usuarios/${id}`);
+  }
+
   getAllUsers(){
     const token = localStorage.getItem('token');
 

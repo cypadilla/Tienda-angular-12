@@ -9,6 +9,9 @@ import { ProductComponent } from './product/product.component';
 import { EditFormComponent } from './edit-form/edit-form.component';
 import { AutenticadoGuard } from './guards/autenticado.guard';
 import { AddProductComponent } from './add-product/add-product.component';
+import { VendedorGuard } from './guards/vendedor.guard';
+import { BuyComponent } from './buy/buy.component';
+import { CompradorGuard } from './guards/comprador.guard';
 
 const routes: Routes = [
   {
@@ -39,7 +42,10 @@ const routes: Routes = [
     path:'product/edit/:id',component:EditFormComponent,pathMatch:'full',canActivate:[AutenticadoGuard]
   },
   {
-    path:'products/add',component:AddProductComponent,pathMatch:'full',canActivate:[AutenticadoGuard]
+    path:'products/add',component:AddProductComponent,pathMatch:'full',canActivate:[AutenticadoGuard,VendedorGuard]
+  },
+  {
+    path:'buy/:id',component:BuyComponent,pathMatch:'full',canActivate:[AutenticadoGuard,CompradorGuard]
   }
 ];
 

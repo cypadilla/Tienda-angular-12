@@ -37,6 +37,8 @@ export class LoginComponent implements OnInit {
         if(response){
           console.log('token',response.jwtToken)
           localStorage.setItem('token',response.jwtToken)
+          localStorage.setItem('tipo',response.usuario.tipo)
+          localStorage.setItem('id',response.usuario._id)
           this.formLogin.reset();
           this.router.navigateByUrl('/home');
         }else{
