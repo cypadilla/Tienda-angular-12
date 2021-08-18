@@ -1,1 +1,45 @@
-<p>buy works!</p>
+<nav >
+    <span class="title" [routerLink]="['/home']" >SusaMauro</span>
+    <ul class="menu">
+        <li class="item" [routerLink]="['/home']" routerLinkActive="router-link-active" >Home</li>
+        <li class="item" [routerLink]="['/users']" routerLinkActive="router-link-active">Usuarios</li>
+        <li class="item" [routerLink]="['/products']" routerLinkActive="router-link-active">Productos</li>
+    </ul>
+</nav>
+<main class="container-fluid">
+    <section class="data-container">
+        <h1 class="title-container">Comprar producto</h1>
+        <div class="card mb-3">
+            <div class="row g-0">
+              <div class="col-md-4">
+                <div class="card-body">
+                    <p class="card-text">Nombre del Producto</p>
+                    <p class="card-text">{{product.nombre}}</p>
+                  </div>
+              </div>
+              <div class="col-md-4">
+                <div class="card-body">
+                    <p class="card-text">Dirección de entrega</p>
+                    <p class="card-text">{{user[0].direccion}}</p>
+                  </div>
+              </div>
+              <div class="col-md-4">
+                <div class="card-body">
+                    <p class="card-text">Valor</p>
+                    <p class="card-text">${{product.precio}}</p>
+                </div>
+              </div>
+            </div>
+          </div>
+    </section>
+    <section class="buy-container">
+        <div class="card">
+            <h5 class="card-header">Generar Factura</h5>
+            <div class="card-body">
+              <h5 class="card-title">Valor a pagar</h5>
+              <p class="card-text">{{product.precio}}</p>
+              <button (click)="setFactura()" class="btn btn-warning">Generar factura</button>
+            </div>
+          </div>
+    </section>
+</main>
