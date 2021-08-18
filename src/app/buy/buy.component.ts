@@ -1,3 +1,4 @@
+import { Route } from '@angular/compiler/src/core';
 import { Component, OnInit } from '@angular/core';
 import { ActivatedRoute, Router } from '@angular/router';
 import { Product } from '../models/product.model';
@@ -17,6 +18,7 @@ export class BuyComponent implements OnInit {
   user:any
   constructor(
     private router:ActivatedRoute,
+    private route:Router,
     private productService :ProductService,
     private usersService :UsersService,
     private facturaService: FacturaService
@@ -56,6 +58,7 @@ export class BuyComponent implements OnInit {
 
     this.facturaService.setBills(data).subscribe((response)=>{
       console.log('respuesta facutura',response)
+      this.route.navigateByUrl('/home')
     })
   }
 
