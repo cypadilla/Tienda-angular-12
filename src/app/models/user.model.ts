@@ -6,8 +6,8 @@ export interface user{
     password?:string,
     direccion?:string,
     permisos?:{
-        add:boolean,
-        put:boolean,
-        delete:boolean,
+        add?:boolean,
+        put?:boolean,
+        delete?:boolean,
     }
 }

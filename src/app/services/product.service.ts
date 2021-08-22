@@ -30,4 +30,10 @@ export class ProductService {
   createProduct(product){
     return this.http.post<Product>(`http://localhost:3000/api/productos`,product)
   }
+
+  deleteProduct(id){
+    return this.http.delete<Product>(`http://localhost:3000/api/productos/${id}`)
+  }
+
+
 }

@@ -56,4 +56,8 @@ export class UsersService {
     return this.http.post<loginResponse>(`http://localhost:3000/api/auth`,userData);
   }
 
+  deleteUser(id){
+    return this.http.delete<userResponse>(`http://localhost:3000/api/usuarios/${id}`)
+  }
+
 }

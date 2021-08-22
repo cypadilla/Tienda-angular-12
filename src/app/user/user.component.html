@@ -25,7 +25,11 @@
             <td>{{item.apellido}}</td>
             <td>{{item.email}}</td>
             <td>{{item.tipo}}</td>
-            <td><button class=" btn btn-primary btn-sm" (click)="edit(item)">Editar</button></td>
+            <td>
+              <button class=" btn btn-primary btn-sm" style="width: 60px;" (click)="edit(item)">Editar</button>
+              <br>
+              <button *ngIf="permisosAdmin?.delete === true" class=" btn btn-danger btn-sm" style="width: 60px;" (click)="deleteUser(item._id)">Eliminar</button>
+            </td>
           </tr>
         </tbody>
       </table>
@@ -43,13 +47,21 @@
                 <option value="administrador">Administrador</option>
               </select>
 
-              <div *ngIf="formUpdate.value.tipo === 'vendedor' || formUpdate.value.tipo === 'administrador'" >
-                <input type="checkbox" value="comprador" formControlName="permisoAgregar"> Agregar Producto
+              <div *ngIf="formUpdate.value.tipo === 'vendedor' && tipo === 'administrador' || formUpdate.value.tipo === 'administrador' && tipo === 'administrador' " >
+                <input type="checkbox" formControlName="permisoAgregar"> Agregar Producto
                 <br>
-                <input type="checkbox" value="vendedor" formControlName="permisoEditar"> Editar Producto
+                <input type="checkbox" formControlName="permisoEditar"> Editar Producto
                 <br>
-                <input type="checkbox" value="administrador"formControlName="permisoEliminar"> Eliminar Producto
+                <input type="checkbox" formControlName="permisoEliminar"> Eliminar Producto
               </div>
+              
+              <div *ngIf="formUpdate.value.tipo === 'administrador'" >
+                <input type="checkbox" formControlName="permisoEditarUser"> Editar Usuario
+                <br>
+                <input type="checkbox" formControlName="permisoEliminarUser"> Eliminar Usuario
+              </div>
+
+
               <button class="button-form btn btn-primary" type="submit">Actualizar</button>
           </form>
       </section>

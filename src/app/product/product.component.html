@@ -18,7 +18,8 @@
               <p class="card-price">${{product?.precio}}</p>
               <p class="card-feature">{{product?.categoria}}</p>
               <p class="card-text">{{product?.descripcion}}</p>
-              <button *ngIf="permisos?.put === true" class="btn btn-primary" (click)="goEdit(product?._id)">Editar Producto</button>
+              <button *ngIf="permisos?.put === true" class="btn btn-primary" style="margin-right: 10px;" (click)="goEdit(product?._id)">Editar Producto</button>
+              <button *ngIf="permisos?.delete === true" class="btn btn-danger" (click)="goDelete(product?._id)">Eliminar Producto</button>
             </div>
           </div>
         </div>

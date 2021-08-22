@@ -15,6 +15,7 @@ export class UserComponent implements OnInit {
   formUpdate:FormGroup;
   idUser:string;
   tipo:string;
+  permisosAdmin: any;
 
   constructor(
     private usersService:UsersService,
@@ -25,19 +26,28 @@ export class UserComponent implements OnInit {
    }
 
   ngOnInit(): void {
-    this.getType()
+    this.getType();
     if(this.tipo === 'administrador'){
       this.getAllUsers();
     }else{
       this.getUser();
     }
+    this.getPermissions();
   }
+
+  // ngDoCheck(){
+  //   this.getPermissions();
+  // }
   getUser() {
     const id = localStorage.getItem('id')
     console.log(id)
     this.usersService.getUser(id).subscribe( res => {
       this.users = res
     })
+  }
+
+  getType(){
+    this.tipo = this.usersService.getType();
   }
 
   getAllUsers(){
@@ -47,15 +57,25 @@ export class UserComponent implements OnInit {
     })
   }
 
+  getPermissions(){
+    this.usersService.getPermissions().subscribe( response => {
+      this.permisosAdmin = response[0].permisosAdmin
+      console.log('permisos',this.permisosAdmin)
+    })
+  }
+
   edit(item){
     this.formUpdate.patchValue(item)
     this.idUser = item._id;
     console.log(this.idUser)
   }
 
-  getType(){
-    this.tipo = this.usersService.getType();
-  }
+  deleteUser(id){
+    this.usersService.deleteUser(id).subscribe( res => {
+      this.getAllUsers();
+    })
+  }  
+ 
 
   onSave(){
 
@@ -63,20 +83,47 @@ export class UserComponent implements OnInit {
 
     if(this.formUpdate.valid){
       // const permisos = this.permisos();
+      let userData
       console.log('valido')
-      const userData = {
-        nombre: this.formUpdate.value.nombre,
-        apellido : this.formUpdate.value.apellido,
-        direccion: this.formUpdate.value.direccion,
-        tipo: this.formUpdate.value.tipo,
-        email: this.formUpdate.value.email,
-        permisos:{
-          add: this.formUpdate.value.permisoAgregar,
-          put:this.formUpdate.value.permisoEditar,
-          delete:this.formUpdate.value.permisoEliminar
+      if(this.formUpdate.value.tipo === 'administrador'){
+        userData = {
+          nombre: this.formUpdate.value.nombre,
+          apellido : this.formUpdate.value.apellido,
+          direccion: this.formUpdate.value.direccion,
+          tipo: this.formUpdate.value.tipo,
+          email: this.formUpdate.value.email,
+          permisos:{
+            add: this.formUpdate.value.permisoAgregar,
+            put:this.formUpdate.value.permisoEditar,
+            delete:this.formUpdate.value.permisoEliminar
+          },
+          permisosAdmin:{
+            put:this.formUpdate.value.permisoEditarUser,
+            delete:this.formUpdate.value.permisoEliminarUser
+          }
         }
-        // permisos:permisos
-      } 
+      } else if (this.formUpdate.value.tipo === 'vendedor'){
+        userData = {
+          nombre: this.formUpdate.value.nombre,
+          apellido : this.formUpdate.value.apellido,
+          direccion: this.formUpdate.value.direccion,
+          tipo: this.formUpdate.value.tipo,
+          email: this.formUpdate.value.email,
+          permisos:{
+            add: this.formUpdate.value.permisoAgregar,
+            put:this.formUpdate.value.permisoEditar,
+            delete:this.formUpdate.value.permisoEliminar
+          }
+        }
+      } else {
+        userData = {
+          nombre: this.formUpdate.value.nombre,
+          apellido : this.formUpdate.value.apellido,
+          direccion: this.formUpdate.value.direccion,
+          tipo: this.formUpdate.value.tipo,
+          email: this.formUpdate.value.email,
+        } 
+      }
       console.log('id:',this.idUser);
       console.log('id:',userData);
 
@@ -85,8 +132,10 @@ export class UserComponent implements OnInit {
         if(response){
           this.formUpdate.reset();
           if(this.tipo === 'administrador'){
+            this.getPermissions();
             this.getAllUsers();
           }else{
+            this.getPermissions();
             this.getUser();
           }
         }else{
@@ -98,6 +147,7 @@ export class UserComponent implements OnInit {
       console.log('in-valido')
     }
   }
+
   permisos() {
      
     interface permisos {
@@ -140,7 +190,10 @@ export class UserComponent implements OnInit {
       email:['',[Validators.required,Validators.email]],
       permisoAgregar:[''],
       permisoEditar:[''],
-      permisoEliminar:['']
+      permisoEliminar:[''],
+      permisoAgregarUser:[''],
+      permisoEditarUser:[''],
+      permisoEliminarUser:[''],
     });
   }
 

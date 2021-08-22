@@ -26,6 +26,7 @@ export class ProductComponent implements OnInit {
 
   ngOnInit(): void {
     this.getProduct();
+    this.getPermissions();
   }
 
   getProduct() {
@@ -39,10 +40,16 @@ export class ProductComponent implements OnInit {
     this.route.navigateByUrl(`/product/edit/${id}`)
   }
 
+  goDelete(id){
+    this.productService.deleteProduct(id).subscribe( res => {
+      this.route.navigateByUrl('/products')
+    })
+  }
+
   getPermissions(){
     this.userService.getPermissions().subscribe( response => {
       this.permisos = response[0].permisos
       console.log('permisos',this.permisos)
     })
-    }
+  }
 }
