@@ -7,12 +7,12 @@
     </ul>
 </nav>
 <main >
-  <section *ngIf="tipo === 'administrador' " class="container-add-product">
+  <section *ngIf="permisos?.add === true " class="container-add-product">
     <button  class="btn btn-warning button_agregar" [routerLink]="['/products/add']" routerLinkActive="router-link-active">Agregar producto </button>
   </section>
-  <section *ngIf="tipo === 'vendedor' " class="container-add-product">
+  <!-- <section *ngIf="tipo === 'vendedor' " class="container-add-product">
     <button  class="btn btn-warning button_agregar" [routerLink]="['/products/add']" routerLinkActive="router-link-active">Agregar producto </button>
-  </section>
+  </section> -->
   <section class="container-fluid">
     <div class="card" style="width: 18rem;" *ngFor="let item of products">
         <img src={{item.imgUrl}} class="card-img-top" alt="...">
@@ -22,8 +22,8 @@
           <p class="card-text">${{item.precio}}</p>
           <p class="card-text">Categoria:{{item.categoria}}</p>
           
-          <button *ngIf="tipo === 'vendedor' " (click)="goProduct(item._id)" class="btn btn-warning">Ver producto</button>
-          <button *ngIf="tipo === 'administrador' " (click)="goProduct(item._id)" class="btn btn-warning">Ver producto</button>
+          <button *ngIf="tipo === 'vendedor' || tipo === 'administrador' " (click)="goProduct(item._id)" class="btn btn-warning">Editar producto</button>
+          <!-- <button *ngIf="tipo === 'administrador' " (click)="goProduct(item._id)" class="btn btn-warning">Ver producto</button> -->
           <button *ngIf="tipo === 'comprador'" (click)="goBuy(item._id)" class="btn btn-warning">Comprar</button>
         </div>
       </div>

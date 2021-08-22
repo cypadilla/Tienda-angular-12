@@ -17,6 +17,10 @@ export class HomeComponent implements OnInit {
 
   ngOnInit(): void {
     this.getType()
+    this.getPermissions()
+  }
+  getPermissions() {
+    this.userService.getPermissions()
   }
 
   logOut(){
@@ -28,6 +32,7 @@ export class HomeComponent implements OnInit {
   getType(){
     this.tipo = this.userService.getType();
   }
+
 
 
 

@@ -12,6 +12,7 @@ export class ProductsComponent implements OnInit {
 
   products:any
   tipo:string
+  permisos:any
 
   constructor(
     private router:Router,
@@ -22,6 +23,7 @@ export class ProductsComponent implements OnInit {
   ngOnInit(){
     this.getAllProducts();
     this.getType();
+    this.getPermissions();
   }
   getAllProducts() {
     this.productService.getAllProducts().subscribe( res =>{
@@ -29,7 +31,13 @@ export class ProductsComponent implements OnInit {
       console.log(this.products)
     })
   }
- 
+  
+  getPermissions(){
+  this.userService.getPermissions().subscribe( response => {
+    this.permisos = response[0].permisos
+    console.log('permisos',this.permisos)
+  })
+  }
 
   goProduct(label:any) {
     console.log('id',label)

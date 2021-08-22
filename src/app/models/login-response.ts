@@ -3,7 +3,7 @@ export interface loginResponse{
         _id:string,
         nombre:string,
         email:string,
-        tipo:string
+        tipo:string,
     },
     jwtToken:string
 }

@@ -42,7 +42,16 @@
                 <option value="vendedor">Vendedor</option>
                 <option value="administrador">Administrador</option>
               </select>
+
+              <div *ngIf="formUpdate.value.tipo === 'vendedor' || formUpdate.value.tipo === 'administrador'" >
+                <input type="checkbox" value="comprador" formControlName="permisoAgregar"> Agregar Producto
+                <br>
+                <input type="checkbox" value="vendedor" formControlName="permisoEditar"> Editar Producto
+                <br>
+                <input type="checkbox" value="administrador"formControlName="permisoEliminar"> Eliminar Producto
+              </div>
               <button class="button-form btn btn-primary" type="submit">Actualizar</button>
           </form>
       </section>
 </main>
+

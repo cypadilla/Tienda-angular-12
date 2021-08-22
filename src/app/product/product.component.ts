@@ -2,6 +2,7 @@ import { Component, OnInit } from '@angular/core';
 import { ActivatedRoute, Router } from '@angular/router';
 import { Product } from '../models/product.model';
 import { ProductService } from '../services/product.service';
+import { UsersService } from '../services/users.service';
 
 @Component({
   selector: 'app-product',
@@ -12,9 +13,11 @@ export class ProductComponent implements OnInit {
   
   label:string
   product:Product;
-
+  permisos:any;
+  
   constructor(
     private productService :ProductService,
+    private userService:UsersService,
     private router: ActivatedRoute,
     private route:Router
   ) { 
@@ -35,4 +38,11 @@ export class ProductComponent implements OnInit {
   goEdit(id){
     this.route.navigateByUrl(`/product/edit/${id}`)
   }
+
+  getPermissions(){
+    this.userService.getPermissions().subscribe( response => {
+      this.permisos = response[0].permisos
+      console.log('permisos',this.permisos)
+    })
+    }
 }

@@ -14,7 +14,8 @@ export class UserComponent implements OnInit {
   users : userResponse;
   formUpdate:FormGroup;
   idUser:string;
-  tipo:string
+  tipo:string;
+
   constructor(
     private usersService:UsersService,
     private formBuilder:FormBuilder,
@@ -61,6 +62,7 @@ export class UserComponent implements OnInit {
     console.log(this.formUpdate.value)
 
     if(this.formUpdate.valid){
+      // const permisos = this.permisos();
       console.log('valido')
       const userData = {
         nombre: this.formUpdate.value.nombre,
@@ -68,8 +70,16 @@ export class UserComponent implements OnInit {
         direccion: this.formUpdate.value.direccion,
         tipo: this.formUpdate.value.tipo,
         email: this.formUpdate.value.email,
+        permisos:{
+          add: this.formUpdate.value.permisoAgregar,
+          put:this.formUpdate.value.permisoEditar,
+          delete:this.formUpdate.value.permisoEliminar
+        }
+        // permisos:permisos
       } 
       console.log('id:',this.idUser);
+      console.log('id:',userData);
+
       this.usersService.updateUser(userData,this.idUser).subscribe( response => {
         console.log('response registro',response)
         if(response){
@@ -88,6 +98,37 @@ export class UserComponent implements OnInit {
       console.log('in-valido')
     }
   }
+  permisos() {
+     
+    interface permisos {
+        add,
+        put,
+        delete,
+    }
+
+    let permisos :permisos
+
+    if(this.formUpdate.value.permisoAgregar!= null){
+      permisos.add = this.formUpdate.value.permisoAgregar
+    }else{
+      permisos.add = false
+    }
+
+    if(this.formUpdate.value.permisoEditar!= null){
+      permisos.put = this.formUpdate.value.permisoEditar
+    }else{
+      permisos.put = false
+    }
+
+    if(this.formUpdate.value.permisoEliminar!= null){
+      permisos.delete = this.formUpdate.value.permisoEliminar
+    }else{
+      permisos.delete = false
+    }
+
+    return permisos
+
+  }
 
 
   private buildForm(){
@@ -97,6 +138,9 @@ export class UserComponent implements OnInit {
       direccion:['',[Validators.required]],
       tipo:['',[Validators.required]],
       email:['',[Validators.required,Validators.email]],
+      permisoAgregar:[''],
+      permisoEditar:[''],
+      permisoEliminar:['']
     });
   }
 

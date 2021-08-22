@@ -22,6 +22,12 @@ export class UsersService {
     return localStorage.getItem('tipo');
   }
 
+  getPermissions(){
+    let id = localStorage.getItem('id')
+    
+    return this.http.get<userResponse>(`http://localhost:3000/api/usuarios/${id}`);
+  }
+
   getUser(id){
     return this.http.get<userResponse>(`http://localhost:3000/api/usuarios/${id}`);
   }
