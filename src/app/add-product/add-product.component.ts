@@ -4,6 +4,10 @@ import { ActivatedRoute, Router } from '@angular/router';
 import { Product } from '../models/product.model';
 import { ProductService } from '../services/product.service';
 
+  interface HtmlInputEvent extends Event{
+    target:HTMLInputElement & EventTarget
+  }
+
 @Component({
   selector: 'app-add-product',
   templateUrl: './add-product.component.html',
@@ -14,9 +18,9 @@ export class AddProductComponent implements OnInit {
   formRegister:FormGroup;
   idProduct:string;
   product:Product
-  uploadedFiles: Array < File > ;
+  uploadedFiles: string | ArrayBuffer ;
   image:string
-  file:any
+  file:File
 
   constructor(
     private formBuilder:FormBuilder,
@@ -41,13 +45,21 @@ export class AddProductComponent implements OnInit {
 
     // console.log(formData)
     if(this.formRegister.valid){
-      const productData = {
-        nombre: this.formRegister.value.nombre,
-        descripcion : this.formRegister.value.descripcion,
-        categoria: this.formRegister.value.categoria,
-        precio: this.formRegister.value.precio,
-        // imgUrl:this.uploadedFiles,
-      } 
+
+      const productData = new FormData();
+      productData.append('image',this.file)
+      productData.append('nombre',this.formRegister.value.nombre)
+      productData.append('descripcion',this.formRegister.value.descripcion)
+      productData.append('categoria',this.formRegister.value.categoria)
+      productData.append('precio',this.formRegister.value.precio)
+      
+
+      // const productData = {
+      //   nombre: this.formRegister.value.nombre,
+      //   descripcion : this.formRegister.value.descripcion,
+      //   categoria: this.formRegister.value.categoria,
+      //   precio: ,
+      // } 
       // console.log('imagen', productData.imgUrl)
       this.productService.createProduct(productData).subscribe( response => {
         console.log('response registro',response)
@@ -65,6 +77,15 @@ export class AddProductComponent implements OnInit {
 
   }
 
+  photoSelected(event:HtmlInputEvent){
+    if(event.target.files && event.target.files[0]){
+      this.file = <File>event.target.files[0];
+      // preview
+      const reader = new FileReader();
+      reader.onload = e => this.uploadedFiles = reader.result;
+      reader.readAsDataURL(this.file)
+    }
+  }
   // onFileChange(event){
   //   // console.log("imagen",event)
   //  const file = event.target.files[0];

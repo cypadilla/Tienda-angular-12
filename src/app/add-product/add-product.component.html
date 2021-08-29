@@ -24,7 +24,8 @@
             </div>
             <div class="input-container">
                 <label for="image" class="label-input">Imagen</label>
-                <input class="form-control  shadow-none image" type="file" id="formFile"  >
+                <input class="form-control  shadow-none image d-none" type="file" (change)="photoSelected($event)" #formFile  >
+                <img [src]="uploadedFiles || '../../assets/images/no-image.png' " style="height: 100px;" alt="no image" (click)="formFile.click()">
             </div>
              <div class="input-container">
                 <label class="label-input" for="description">Descripción</label>
