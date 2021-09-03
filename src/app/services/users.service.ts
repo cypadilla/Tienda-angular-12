@@ -2,12 +2,15 @@ import { HttpClient , HttpHeaders} from '@angular/common/http';
 import { Injectable } from '@angular/core';
 import { loginResponse } from '../models/login-response';
 import { userResponse } from '../models/user-response';
+import { environment } from '../../environments/environment' 
 
 
 @Injectable({
   providedIn: 'root'
 })
 export class UsersService {
+
+  APIURL = `${environment.apiUrl}api`;
 
   constructor(
     private http:HttpClient
@@ -25,11 +28,11 @@ export class UsersService {
   getPermissions(){
     let id = localStorage.getItem('id')
     
-    return this.http.get<userResponse>(`http://localhost:3000/api/usuarios/${id}`);
+    return this.http.get<userResponse>(`${this.APIURL}/usuarios/${id}`);
   }
 
   getUser(id){
-    return this.http.get<userResponse>(`http://localhost:3000/api/usuarios/${id}`);
+    return this.http.get<userResponse>(`${this.APIURL}/usuarios/${id}`);
   }
 
   getAllUsers(){
@@ -40,24 +43,25 @@ export class UsersService {
       'Content-Type':  'application/json',
       Authorization: token
       })
-      return this.http.get<userResponse>('http://localhost:3000/api/usuarios',{headers:header});
+      return this.http.get<userResponse>(`${this.APIURL}/usuarios`,{headers:header});
   };
 
 
   updateUser(user,id){
-    return this.http.put<userResponse>(`http://localhost:3000/api/usuarios/update/${id}`,user)
+    return this.http.put<userResponse>(`${this.APIURL}/usuarios/update/${id}`,user)
   }
 
   createUser(user){
-    return this.http.post<userResponse>(`http://localhost:3000/api/usuarios`,user);
+    return this.http.post<userResponse>(`${this.APIURL}/usuarios`,user);
   }
 
   login(userData){
-    return this.http.post<loginResponse>(`http://localhost:3000/api/auth`,userData);
+    console.log(this.APIURL)
+    return this.http.post<loginResponse>(`${this.APIURL}/auth`,userData);
   }
 
   deleteUser(id){
-    return this.http.delete<userResponse>(`http://localhost:3000/api/usuarios/${id}`)
+    return this.http.delete<userResponse>(`${this.APIURL}/usuarios/${id}`)
   }
 
 }

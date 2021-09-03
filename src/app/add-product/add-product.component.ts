@@ -83,7 +83,10 @@ export class AddProductComponent implements OnInit {
       // preview
       const reader = new FileReader();
       reader.onload = e => this.uploadedFiles = reader.result;
-      reader.readAsDataURL(this.file)
+      reader.readAsDataURL(this.file) 
+      console.log('DIEGO HP',this.uploadedFiles)
+      console.log('DIEGO HP',reader.result)
+      console.log('DIEGO HP',this.file)
     }
   }
   // onFileChange(event){

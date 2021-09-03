@@ -1,5 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { ActivatedRoute, Router } from '@angular/router';
+import { environment } from 'src/environments/environment';
 import { Product } from '../models/product.model';
 import { ProductService } from '../services/product.service';
 import { UsersService } from '../services/users.service';
@@ -11,6 +12,7 @@ import { UsersService } from '../services/users.service';
 })
 export class ProductComponent implements OnInit {
   
+  APIURL = `${environment.apiUrl}`;
   label:string
   product:Product;
   permisos:any;

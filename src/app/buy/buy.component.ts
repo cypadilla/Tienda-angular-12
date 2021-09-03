@@ -1,6 +1,7 @@
 import { Route } from '@angular/compiler/src/core';
 import { Component, OnInit } from '@angular/core';
 import { ActivatedRoute, Router } from '@angular/router';
+import { environment } from 'src/environments/environment';
 import { Product } from '../models/product.model';
 import { FacturaService } from '../services/factura.service';
 import { ProductService } from '../services/product.service';
@@ -13,6 +14,7 @@ import { UsersService } from '../services/users.service';
 })
 export class BuyComponent implements OnInit {
 
+  APIURL = `${environment.apiUrl}`;
   idProduct:string
   product:Product
   user:any
