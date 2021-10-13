@@ -1,116 +1,110 @@
-@import url('https://fonts.googleapis.com/css2?family=Varela+Round&display=swap');
+@import url("https://fonts.googleapis.com/css2?family=Varela+Round&display=swap");
 
-*{
-    box-sizing: border-box;
-    margin: 0;
-    padding: 0;
+* {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
 }
 
-.container{
-    display: flex;
-    width: 90vw;
-    height: 90vh;
-    margin: 20px auto;
-    border-radius: 30px;
-    box-shadow: 6px 6px 7px -2px rgba(0,0,0,0.75);
+.container {
+  display: flex;
+  width: 90vw;
+  height: 90vh;
+  margin: 20px auto;
+  border-radius: 30px;
+  box-shadow: 6px 6px 7px -2px rgba(0, 0, 0, 0.75);
 }
 
-.container-login{
-    width: 35%;
-    height: 100%;
-    padding: 5%;
-    padding-top: 10%;
-    text-align: center;
-    background-color: #202E7C;
-    border-radius: 30px 0 0 30px;
+.container-login {
+  width: 35%;
+  height: 100%;
+  padding: 5%;
+  padding-top: 10%;
+  text-align: center;
+  background-color: #202e7c;
+  border-radius: 30px 0 0 30px;
 }
 
-.container-login-title{
-    font-size: 45px;
-    font-family: 'Varela Round', sans-serif;
-    margin-bottom:20px ;
-    color: #FFFFFF;
+.container-login-title {
+  font-size: 45px;
+  font-family: "Varela Round", sans-serif;
+  margin-bottom: 20px;
+  color: #ffffff;
 }
 
-.container-login-p{
-    font-size: 30px;
-    font-family: 'Varela Round',sans-serif;
-    margin: 30% 0 30% 0;
-    color: #FFFFFF;
+.container-login-p {
+  font-size: 30px;
+  font-family: "Varela Round", sans-serif;
+  margin: 30% 0 30% 0;
+  color: #ffffff;
 }
 
-.container-login-bottom{
-    font-size: 20px;
-    font-weight: 900;
-    font-family: 'Varela Round',sans-serif;
-    background-color: #FFF;
-    color: #202E7C;
-    width: 258px;
-    height: 66px;
-    padding: 5% 20%;
-    border-radius: 2.0rem;
-    border:1px solid white;
-    box-shadow: 0px 4px 4px rgba(0, 0, 0, 0.5);
-
+.container-login-bottom {
+  font-size: 20px;
+  font-weight: 900;
+  font-family: "Varela Round", sans-serif;
+  background-color: #fff;
+  color: #202e7c;
+  width: 258px;
+  height: 66px;
+  padding: 5% 20%;
+  border-radius: 2rem;
+  border: 1px solid white;
+  box-shadow: 0px 4px 4px rgba(0, 0, 0, 0.5);
 }
 
-.container-register{
-    width:70%;
-    padding: 30px;
+.container-register {
+  width: 70%;
+  padding: 30px;
 }
 
-.container-register-form{
-    display: flex;
-    flex-direction: column;
+.container-register-form {
+  display: flex;
+  flex-direction: column;
 }
 
-.container-register-form-title{
-    font-size: 50px;
-    text-align: center;
-    color: #202E7C;
-    font-family: 'Varela Round',sans-serif;
-    margin :5% 0;
+.container-register-form-title {
+  font-size: 50px;
+  text-align: center;
+  color: #202e7c;
+  font-family: "Varela Round", sans-serif;
+  margin: 5% 0;
 }
 
-.form{
-    display: grid;
-    padding: 5%;
-    grid-template:repeat(3, 1fr)/ repeat(2,1fr);
-    gap:30px 0px;
-    justify-items: center;
+.form {
+  display: grid;
+  padding: 5%;
+  grid-template: repeat(3, 1fr) / repeat(2, 1fr);
+  gap: 30px 0px;
+  justify-items: center;
 }
 
-.input{
-    width: 80%;
-    height: 50px;
-    text-align: center;
-    background: #DAE5FA;
-    box-shadow: 0px 4px 4px rgba(0, 0, 0, 0.55);
-    border-radius: 20px 0px;
-    border:0;
-    outline: none;
-
+.input {
+  width: 80%;
+  height: 50px;
+  text-align: center;
+  background: #dae5fa;
+  box-shadow: 0px 4px 4px rgba(0, 0, 0, 0.55);
+  border-radius: 20px 0px;
+  border: 0;
+  outline: none;
 }
 
-.buttom-container{
-
-    justify-content: center;
+.buttom-container {
+  justify-content: center;
 }
-.input-bottom{
-    position: relative;
-    top: 75px;
-    right: 170px;
-    width: 250px;
-    height: 50px;
-    font-size: 20px;
-    font-weight: 500;
-    color: #FFFFFF;
-    background-color: #202E7C;
-    border-radius: 20px;
-    box-shadow: 0px 4px 4px rgba(0, 0, 0, 0.5);
-    border: 1px solid #202E7C;
-    outline: none;
-
-
-
+.input-bottom {
+  position: relative;
+  top: 75px;
+  right: 170px;
+  width: 250px;
+  height: 50px;
+  font-size: 20px;
+  font-weight: 500;
+  color: #ffffff;
+  background-color: #202e7c;
+  border-radius: 20px;
+  box-shadow: 0px 4px 4px rgba(0, 0, 0, 0.5);
+  border: 1px solid #202e7c;
+  outline: none;
 }

@@ -15,7 +15,7 @@
   </section> -->
   <section class="container-fluid">
     <div class="card" style="width: 18rem;" *ngFor="let item of products">
-        <img [src]="APIURL+ item.imgUrl" class="card-img-top" alt="...">
+        <img [src]="APIURL + item.imgUrl" class="card-img-top" alt="...">
         <div class="card-body">
           <h5 class="card-title">{{item.nombre}}</h5>
           <p class="card-text">{{item.descripcion}}</p>
